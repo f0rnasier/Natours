@@ -63,7 +63,7 @@ if (userPasswordForm)
 if (bookBtn)
   bookBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
-
+    const stripe = Stripe('sk_test_XC0cq0yqQ3cxh5psb3CytcCo');
     const { tourId } = e.target.dataset;
     bookTour(tourId);
   });
