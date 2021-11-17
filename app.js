@@ -9,6 +9,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./Utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -27,6 +28,9 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1 GLOBAL MIDDLEWARES
+// Implement CORS
+app.use(cors());
+app.options('*', cors());
 // Serving Static Files
 // app.use(express.static(`${__dirname}/public`)); // acessando arquivos estativos atraves do express
 app.use(express.static(path.join(__dirname, 'public')));
